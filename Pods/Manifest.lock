@@ -1,0 +1,13 @@
+PODS:
+  - BmobSDK (1.5.5.1)
+  - EaseMobSDK (2.1.5)
+
+DEPENDENCIES:
+  - BmobSDK
+  - EaseMobSDK
+
+SPEC CHECKSUMS:
+  BmobSDK: 7055657fdd89f13d10e6e909504eb2248880bb41
+  EaseMobSDK: 7fa8a57a336b01d9cea71de831c5c9a1cb2acf00
+
+COCOAPODS: 0.36.4

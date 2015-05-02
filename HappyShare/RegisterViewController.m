@@ -123,7 +123,7 @@
         [bUser setPassword:[userInfo objectForKey:@"userPassword"]];
         [bUser setObject:[userInfo objectForKey:@"userNickName"] forKey:@"nickName"];
         [bUser signUpInBackground];
-        [[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:[self IMId:[userInfo objectForKey:@"userName"]] password:[userInfo objectForKey:@"userPassword"] withCompletion:^(NSString *username, NSString *password, EMError *error) {
+        [[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:[self buildID:[userInfo objectForKey:@"userName"]] password:[userInfo objectForKey:@"userPassword"] withCompletion:^(NSString *username, NSString *password, EMError *error) {
             if (!error) {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"恭喜您已经注册成功！" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:@"马上登陆", nil];
                 alert.tag=101;
@@ -157,7 +157,7 @@
     [BmobUser loginWithUsernameInBackground:[userInfo objectForKey:@"userName"] password:[userInfo objectForKey:@"userPassword"] block:^(BmobUser *user, NSError *error) {
         NSLog(@"%@",user);
     }];
-    [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:[self IMId:[userInfo objectForKey:@"userName"]] password:[userInfo objectForKey:@"userPassword"] completion:^(NSDictionary *loginInfo, EMError *error) {
+    [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:[self buildID:[userInfo objectForKey:@"userName"]] password:[userInfo objectForKey:@"userPassword"] completion:^(NSDictionary *loginInfo, EMError *error) {
         if (loginInfo && !error) {
             //        获取好友列表
             [[EaseMob sharedInstance].chatManager asyncFetchBuddyList];
@@ -197,7 +197,7 @@
 }
 
 #pragma mark -创建环信ID
-- (NSString *)IMId:(NSString *)ID
+- (NSString *)buildID:(NSString *)ID
 {
     NSMutableString *ImID;
     if (ID) {

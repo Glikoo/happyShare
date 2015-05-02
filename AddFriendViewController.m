@@ -91,9 +91,10 @@
 #pragma mark - 选中cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    BmobObject *obj=result[indexPath.row];
     DetailsTableViewController *details=[[DetailsTableViewController alloc]init];
-    details.userInfo=result;
-    details.selectIndexPath=indexPath;
+    details.userName=[obj objectForKey:@"username"];
+    details.nickName=[obj objectForKey:@"nickName"];
     [self.navigationController pushViewController:details animated:YES];
     
 }

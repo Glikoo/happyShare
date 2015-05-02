@@ -9,11 +9,14 @@
 #import "addressBookViewController.h"
 #import "addressBookCell.h"
 #import "AddFriendViewController.h"
+#import "DetailsTableViewController.h"
 
 @interface addressBookViewController ()
 {
     NSArray *buddyActionData;
     AddFriendViewController *addFriend;
+    NSString *userName1;
+    NSString *nickName1;
 }
 
 @end
@@ -149,11 +152,33 @@
                 break;
         }
     }
+    else{
+        
+        EMBuddy *userBuddy=self.BuddyList[indexPath.row];
+        BmobQuery *query = [BmobUser query];
+        [query whereKey:@"username" equalTo:[self IMId:userBuddy.username]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+            BmobUser *user=array[0];
+            [self performSelectorOnMainThread:@selector(pushDetails:) withObject:user waitUntilDone:YES];
+            
+        }];
+     
+    }
 
+}
+
+- (void)pushDetails:(BmobUser *)user
+{
+    DetailsTableViewController *details=[[DetailsTableViewController alloc]init];
+    details.userName=[user objectForKey:@"username"];
+    details.nickName=[user objectForKey:@"nickName"];
+    NSLog(@"%@%@",[user objectForKey:@"username"],[user objectForKey:@"nickName"]);
+    [self.navigationController pushViewController:details animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.navigationController.navigationBarHidden=NO;
     self.tabBarController.tabBar.hidden=NO;
 }
 

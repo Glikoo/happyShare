@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C7559A8A-6730-4FA7-8246-EDF053095E26</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HappyShare</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>933B2A2A32D235D551960438577E399575C61638</key>
+		<string>https://github.com/CHStar/happyShare.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>HappyShare.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>933B2A2A32D235D551960438577E399575C61638</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/CHStar/happyShare.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>933B2A2A32D235D551960438577E399575C61638</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>933B2A2A32D235D551960438577E399575C61638</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HappyShare</string>
+		</dict>
+	</array>
+</dict>
+</plist>

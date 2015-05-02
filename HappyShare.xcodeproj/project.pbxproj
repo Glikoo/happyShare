@@ -10,6 +10,7 @@
 		1860E5B41AF47BC000FF4672 /* DetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1860E5B31AF47BC000FF4672 /* DetailsTableViewController.m */; };
 		1860E5B71AF47C4A00FF4672 /* DetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1860E5B61AF47C4A00FF4672 /* DetailsCell.m */; };
 		1860E5BA1AF4D0D700FF4672 /* ManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1860E5B91AF4D0D700FF4672 /* ManagerView.m */; };
+		1860E5BD1AF4E25600FF4672 /* AddFriendMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1860E5BC1AF4E25600FF4672 /* AddFriendMessageView.m */; };
 		18791DE11AF33D3E0042436F /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18791DE01AF33D3E0042436F /* RegisterViewController.m */; };
 		18791DE51AF38A450042436F /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18791DE41AF38A450042436F /* AddFriendViewController.m */; };
 		189948FB1AF24A70000306D9 /* AppDelegate+easeMob.m in Sources */ = {isa = PBXBuildFile; fileRef = 189948FA1AF24A70000306D9 /* AppDelegate+easeMob.m */; };
@@ -236,6 +237,8 @@
 		1860E5B61AF47C4A00FF4672 /* DetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsCell.m; sourceTree = "<group>"; };
 		1860E5B81AF4D0D700FF4672 /* ManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerView.h; sourceTree = "<group>"; };
 		1860E5B91AF4D0D700FF4672 /* ManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerView.m; sourceTree = "<group>"; };
+		1860E5BB1AF4E25600FF4672 /* AddFriendMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendMessageView.h; sourceTree = "<group>"; };
+		1860E5BC1AF4E25600FF4672 /* AddFriendMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendMessageView.m; sourceTree = "<group>"; };
 		18791DDF1AF33D3E0042436F /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		18791DE01AF33D3E0042436F /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		18791DE31AF38A450042436F /* AddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendViewController.h; sourceTree = "<group>"; };
@@ -498,6 +501,8 @@
 			children = (
 				18791DE31AF38A450042436F /* AddFriendViewController.h */,
 				18791DE41AF38A450042436F /* AddFriendViewController.m */,
+				1860E5BB1AF4E25600FF4672 /* AddFriendMessageView.h */,
+				1860E5BC1AF4E25600FF4672 /* AddFriendMessageView.m */,
 			);
 			name = Friend;
 			sourceTree = "<group>";
@@ -1320,6 +1325,7 @@
 				1860E5B41AF47BC000FF4672 /* DetailsTableViewController.m in Sources */,
 				18D352BA1AF245C600B4C161 /* main.m in Sources */,
 				189948FB1AF24A70000306D9 /* AppDelegate+easeMob.m in Sources */,
+				1860E5BD1AF4E25600FF4672 /* AddFriendMessageView.m in Sources */,
 				189949081AF24C1A000306D9 /* ChatListViewController.m in Sources */,
 				1860E5BA1AF4D0D700FF4672 /* ManagerView.m in Sources */,
 				1860E5B71AF47C4A00FF4672 /* DetailsCell.m in Sources */,

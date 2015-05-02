@@ -149,7 +149,15 @@
 - (void)doLogin
 {
     [BmobUser loginWithUsernameInBackground:[userInfo objectForKey:@"userName"] password:[userInfo objectForKey:@"userPassword"] block:^(BmobUser *user, NSError *error) {
-        NSLog(@"1");
+        if (error) {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
+                                                            message:error.description
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+
+        }
     }];
     [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:[self IMId:[userInfo objectForKey:@"userName"]] password:[userInfo objectForKey:@"userPassword"] completion:^(NSDictionary *loginInfo, EMError *error) {
     if (loginInfo && !error) {

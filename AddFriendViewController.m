@@ -9,12 +9,13 @@
 #import "AddFriendViewController.h"
 #import "addressBookCell.h"
 #import "DetailsTableViewController.h"
+#import "ManagerView.h"
 
 @interface AddFriendViewController ()
 {
     UISearchBar *searchView;
     UIButton *cancelButton;
-    UIView *clearView;
+    ManagerView *clearView;
     NSArray *result;
     UITapGestureRecognizer *tap;
 }
@@ -28,9 +29,10 @@
     self.title=@"新的朋友";
     result=[NSArray array];
     [self searhBar];
-    
-    
 }
+
+
+
 
 #pragma mark - 创建searhBar
 - (void)searhBar
@@ -90,6 +92,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DetailsTableViewController *details=[[DetailsTableViewController alloc]init];
+    details.userInfo=result;
+    details.selectIndexPath=indexPath;
     [self.navigationController pushViewController:details animated:YES];
     
 }
@@ -110,12 +114,14 @@
     [cancelButton addTarget:self action:@selector(cancelSearch) forControlEvents:UIControlEventTouchUpInside];
     [searchView addSubview:cancelButton];
     
-    clearView=[[UIView alloc]initWithFrame:self.view.frame];
+    clearView=[ManagerView defaultManager];
+    clearView.frame=self.view.frame;
     clearView.backgroundColor=[UIColor colorWithWhite:0.500 alpha:0.100];
     [self.view addSubview:clearView];
     
-    tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapView)];
+    tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapViews)];
     [clearView addGestureRecognizer:tap];
+    
     
     
     [UIView animateWithDuration:0.5 animations:^{
@@ -162,7 +168,8 @@
             }
         }
         else{
-        [self reminder];
+            [clearView addGestureRecognizer:tap];
+            [self reminder];
         }
     }];
 }
@@ -171,14 +178,15 @@
 #pragma mark - 取消搜索
 - (void)cancelSearch
 {
-//    searchView.backgroundImage = [self imageWithColor:[UIColor colorWithWhite:0.850 alpha:1.000]];
-//    UITextField *searchField;
-//    searchField=[((UIView *)[searchView.subviews objectAtIndex:0]).subviews lastObject];
-//    searchField.frame=CGRectMake(8, 6, 370, 28);
-//    
-//    [cancelButton removeFromSuperview];
     [searchView removeFromSuperview];
     
+    
+    for(UIView *view in [clearView subviews])
+    {
+        [view removeFromSuperview];
+    }
+    
+
     [clearView removeFromSuperview];
     [self searhBar];
     searchView.frame=CGRectMake(0, 20, self.view.bounds.size.width, 40);
@@ -206,10 +214,22 @@
     return image;
 }
 
+#pragma mark - 点击手势
+- (void)tapViews
+{
+    [self.view endEditing:YES];
+    [self cancelSearch];
+}
+
 #pragma mark - 隐藏tabBarController
 - (void)viewWillAppear:(BOOL)animated
 {
     self.tabBarController.tabBar.hidden=YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -217,11 +237,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)tapView
-{
-    [self.view endEditing:YES];
-    [self cancelSearch];
-}
+
+
 /*
 #pragma mark - Navigation
 

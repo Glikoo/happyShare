@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface AddFriendViewController : UIViewController<UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate>
-
 @end

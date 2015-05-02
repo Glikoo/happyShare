@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailsTableViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-
+@property (atomic,copy)NSArray *userInfo;
+@property (atomic,copy)NSIndexPath *selectIndexPath;
 @end

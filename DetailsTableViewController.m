@@ -90,15 +90,18 @@
 #pragma mark -设置表头视图
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    BmobObject *obj=self.userInfo[self.selectIndexPath.row];
     UIView *headView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 80)];
     UIImageView *headImage=[[UIImageView alloc]initWithFrame:CGRectMake(5, 10, headView.frame.size.height-20,headView.frame.size.height-20)];
     headImage.image=[UIImage imageNamed:@"chatListCellHead"];
     [headView addSubview:headImage];
-    UILabel *emailLabel=[[UILabel alloc]initWithFrame:CGRectMake(headImage.frame.size.width+15, 10, 200, 30)];
-    emailLabel.backgroundColor=[UIColor redColor];
+    
+    UILabel *emailLabel=[[UILabel alloc]initWithFrame:CGRectMake(headImage.frame.size.width+25, 10, 200, 30)];
+    emailLabel.text=[NSString stringWithFormat:@"邮箱:%@",[obj objectForKey:@"username"]];
     [headView addSubview:emailLabel];
-    UILabel *nickLabel=[[UILabel alloc]initWithFrame:CGRectMake(headImage.frame.size.width+15, 40, 200, 30)];
-    nickLabel.backgroundColor=[UIColor redColor];
+    
+    UILabel *nickLabel=[[UILabel alloc]initWithFrame:CGRectMake(headImage.frame.size.width+25, 40, 200, 30)];
+    nickLabel.text=[NSString stringWithFormat:@"昵称:%@",[obj objectForKey:@"nickName"]];
     [headView addSubview:nickLabel];
     return headView;
 }
@@ -126,6 +129,10 @@
     return footView;
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden=YES;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
